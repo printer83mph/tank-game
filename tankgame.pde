@@ -14,10 +14,8 @@ void setup() {
 
 void draw() {
   background(120, 60, 60);
-  runSmoke();
   runEnts();
   fill(120, 60, 60, 200);
   rect(0, 0, width, height);
-  drawSmoke();
   drawEnts();
 }

@@ -28,14 +28,15 @@ public class Entity {
 }
 
 void runEnts() {
+  fill(0);
   for (int i = ents.size()-1; i >= 0; i--) {
     Entity ent = ents.get(i);
-    ent.update();
     if (ent.status == "dead") {
       if (ent.deathFrame == -1) {
         ent.deathFrame = frameCount;
       }
     }
+    ent.update();
     if (ent.status == "removable") {
       ents.remove(i);
     } else {
@@ -45,7 +46,7 @@ void runEnts() {
 }
 
 void drawEnts() {
-  for (int i = 0; i < ents.size(); i++) {
+  for (int i = ents.size()-1; i >= 0; i--) {
     Entity ent = ents.get(i);
     ent.draw();
   }

@@ -49,8 +49,7 @@ public class Bullet extends Entity {
   }
 
   void drawShadow() {
-    fill(0);
-    ellipse(pos.x, pos.y, radius*2 + 10, radius*2 + 10);
+    ellipse(pos.x+3, pos.y+3, radius*2, radius*2);
   }
 
   void hit() {
