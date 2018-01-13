@@ -51,12 +51,12 @@ public class Player extends Entity {
   
       if (abs(vel) > 2.5) {
         if (frameCount % 7 == 0) {
-          ents.add(new Smoke(pos.x, pos.y, hue));
+          bg.add(new Smoke(pos.x, pos.y, hue));
         }
       } else {
         if (frameCount - lastShot >= 30 + vel*10) {
           PVector bulletStart = PVector.add(pos, PVector.fromAngle(angle).mult(25));
-          ents.add(new Bullet(bulletStart.x, bulletStart.y, angle, vel*2+4, hue));
+          fg.add(new Bullet(bulletStart.x, bulletStart.y, angle, vel*2+4, hue));
           lastShot = frameCount;
         }
       }

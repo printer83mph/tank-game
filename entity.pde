@@ -1,4 +1,7 @@
-ArrayList<Entity> ents = new ArrayList<Entity>();
+ArrayList<Entity> ov;
+ArrayList<Entity> fg;
+ArrayList<Entity> bg;
+ArrayList<ArrayList<Entity>> entsList = new ArrayList<ArrayList<Entity>>();
 
 public class Entity {
   
@@ -29,25 +32,31 @@ public class Entity {
 
 void runEnts() {
   fill(0);
-  for (int i = ents.size()-1; i >= 0; i--) {
-    Entity ent = ents.get(i);
-    if (ent.status == "dead") {
-      if (ent.deathFrame == -1) {
-        ent.deathFrame = frameCount;
+  for (int i = 0; i < entsList.size(); i++) {
+    ArrayList<Entity> ents = entsList.get(i);
+    for (int j = ents.size()-1; j >= 0; j--) {
+      Entity ent = ents.get(j);
+      if (ent.status == "dead") {
+        if (ent.deathFrame == -1) {
+          ent.deathFrame = frameCount;
+        }
       }
-    }
-    ent.update();
-    if (ent.status == "removable") {
-      ents.remove(i);
-    } else {
-      ent.drawShadow();
+      ent.update();
+      if (ent.status == "removable") {
+        ents.remove(j);
+      } else {
+        ent.drawShadow();
+      }
     }
   }
 }
 
 void drawEnts() {
-  for (int i = ents.size()-1; i >= 0; i--) {
-    Entity ent = ents.get(i);
-    ent.draw();
+  for (int i = 0; i < entsList.size(); i++) {
+    ArrayList<Entity> ents = entsList.get(i);
+    for (int j = ents.size()-1; j >= 0; j--) {
+      Entity ent = ents.get(j);
+      ent.draw();
+    }
   }
 }

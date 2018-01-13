@@ -17,8 +17,8 @@ public class Bullet extends Entity {
       if (frameCount-startFrame == 45) {
         hit();
       }
-      for (int i = 0; i < ents.size(); i++) {
-        Entity ent = ents.get(i);
+      for (int i = 0; i < fg.size(); i++) {
+        Entity ent = fg.get(i);
         if (hue != ent.hue) {
           if (pos.dist(ent.pos) < ent.radius + radius) {
             hit();
@@ -32,8 +32,8 @@ public class Bullet extends Entity {
       if (frameCount-deathFrame == 30) {
         status = "removable";
       }
-      for (int i = 0; i < ents.size(); i++) {
-        Entity ent = ents.get(i);
+      for (int i = 0; i < fg.size(); i++) {
+        Entity ent = fg.get(i);
         if (hue != ent.hue) {
           if (pos.dist(ent.pos) < ent.radius + radius) {
             ent.hit();
