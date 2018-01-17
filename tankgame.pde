@@ -3,6 +3,7 @@ Player ply, ply2;
 
 void setup() {
   size(800, 800);
+  textAlign(CENTER);
   smooth();
   noStroke();
   colorMode(HSB, 255);
@@ -12,6 +13,13 @@ void setup() {
   ov = entsList.get(2);
   fg = entsList.get(1);
   bg = entsList.get(0);
+  reset();
+}
+
+void reset() {
+  for (int i = 0; i < entsList.size(); i++) {
+    entsList.get(i).clear();
+  }
   char[] plykeys = {'w', 's', 'a', 'd','x'};
   fg.add(new Player(400, 600, 0, plykeys));
   char[] ply2keys = {'i', 'k', 'j', 'l','m'};

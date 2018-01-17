@@ -69,8 +69,9 @@ public class Player extends Entity {
   }
 
   void hit() {
-    if (frameCount-lastHit > 20) {
+    if (frameCount-lastHit > 40) {
       hp--;
+      ov.add(new DamageNumber(pos.x, pos.y, -1));
       if (hp <= 0) {
         status = "dead";
       };

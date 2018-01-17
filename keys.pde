@@ -2,6 +2,9 @@ ArrayList<Character> keysPressed = new ArrayList<Character>();
 
 void keyPressed() {
   keysPressed.add(key);
+  if (key == 'r') {
+    reset();
+  }
 }
 
 void keyReleased() {
