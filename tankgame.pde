@@ -27,9 +27,7 @@ void reset() {
 }
 
 void draw() {
-  background(120, 60, 60);
+  background(28, 40, 230);
   runEnts();
-  fill(120, 60, 60, 200);
-  rect(0, 0, width, height);
   drawEnts();
 }

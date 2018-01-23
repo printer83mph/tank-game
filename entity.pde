@@ -31,7 +31,7 @@ public class Entity {
 }
 
 void runEnts() {
-  fill(0);
+  fill(28, 40, 170);
   for (int i = 0; i < entsList.size(); i++) {
     ArrayList<Entity> ents = entsList.get(i);
     for (int j = ents.size()-1; j >= 0; j--) {

@@ -3,7 +3,7 @@ public class Player extends Entity {
   int hp;
   int lastShot = 0;
   int lastHit = 0;
-  float scale = 1;
+  float scale = 0;
   float angvel = 0;
   float angle = 0;
   float vel = 0;
@@ -17,6 +17,7 @@ public class Player extends Entity {
     hue = h;
     keys = k;
     radius = 15;
+    status = "spawning";
   }
 
   void update() {
@@ -64,6 +65,12 @@ public class Player extends Entity {
       scale -= 0.05/scale;
       if (scale < 0.1) {
         status = "removable";
+      }
+    } else if (status == "spawning") {
+      scale += 0.1;
+      if (scale >= 1) {
+        scale = 1;
+        status = "active";
       }
     }
   }
